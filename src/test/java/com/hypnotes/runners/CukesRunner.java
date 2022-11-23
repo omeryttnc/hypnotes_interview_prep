@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/Features",
         glue = "com.hypnotes.stepDefinitions",
-        
-        tags = "@smoke"
+        dryRun = true,
+        tags = "@007"
 )
 public class CukesRunner {
 }
