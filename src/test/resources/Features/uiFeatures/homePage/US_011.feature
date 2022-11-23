@@ -1,5 +1,6 @@
 Feature: homePage
 
+  @day1
   Scenario: As a user, on the footer of the page I should be able to see the Explore, Features,Company Titles and related subtitles._1
     Given go to website "https://test.hypnotes.net/"
     And go to bottom page
@@ -22,16 +23,16 @@ Feature: homePage
       | Contact Us                                                             |
       | Privacy Policy                                                         |
       | Terms Of Service                                                       |
-      | Hypnotes Inc., 1159 Kelez Dr San Jose, California, 95120 United States |
+      | Hypnotes Inc., 1159 Kelez Dr San Jose, California, 95120, United States |
       | +1 (831) 205-7059                                                      |
 
-
+  @day1
   Scenario Outline: US_011_TC02 The user verifies that the Headings in the relevant section should be clickable and related pages should be opened
     Given go to website "https://test.hypnotes.net/"
     And go to bottom page
     When the user clicks "<index>" the link and verifies that the url is the expected "<url>"
     Examples:
-      | index | url                                                              |
+      | index | url                                                                   |
       | 0     | https://test.hypnotes.net/blog                                        |
       | 1     | https://test.hypnotes.net/pricing                                     |
       | 2     | https://test.hypnotes.net/how-it-works                                |
