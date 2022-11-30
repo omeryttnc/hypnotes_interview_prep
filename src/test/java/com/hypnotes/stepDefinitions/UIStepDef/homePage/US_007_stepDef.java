@@ -38,4 +38,5 @@ public class US_007_stepDef extends CommonPage {
         Assert.assertNotEquals("youtube video su oynamadi", startTime, endTime);
 
     }
+
 }

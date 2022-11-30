@@ -50,14 +50,11 @@ public class Driver {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        String browser= properties1.getProperty("browser");
-        boolean headless= Boolean.parseBoolean(properties1.getProperty("headless"));
-        boolean fullscreen= Boolean.parseBoolean(properties1.getProperty("fullscreen"));
-        int width= Integer.parseInt(properties1.getProperty("width"));
-        int height= Integer.parseInt(properties1.getProperty("height"));
-
-
-
+        String browser = properties1.getProperty("browser");
+        boolean headless = Boolean.parseBoolean(properties1.getProperty("headless"));
+        boolean fullscreen = Boolean.parseBoolean(properties1.getProperty("fullscreen"));
+        int width = Integer.parseInt(properties1.getProperty("width"));
+        int height = Integer.parseInt(properties1.getProperty("height"));
 
 
         //setting various capabilities for browsers
@@ -134,7 +131,8 @@ public class Driver {
                 } else {
                     Dimension dimension = new Dimension(width, height);
                     driverPool.get().manage().window().setSize(dimension);
-                }                driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+                }
+                driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
             }
         }
         /*

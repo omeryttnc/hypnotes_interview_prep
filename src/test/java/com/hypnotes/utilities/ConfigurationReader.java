@@ -11,7 +11,7 @@ public class ConfigurationReader {
         //Herseyden once calismasini istedigimiz durumlari static block icine yazariz
         // okumak istediğimiz configuration.properties file'ın dosya yolu
         // C:\Users\isimsiz\IdeaProjects\TestNGProje\configuration.properties
-        String path = "configuration.properties";
+        String path = "src/test/resources/configuration.properties";
         // dene - hata varsa yakala.
         // bu işlemi DENE eğer hata alırsan, PROGRAMI DURDURMA
         try{

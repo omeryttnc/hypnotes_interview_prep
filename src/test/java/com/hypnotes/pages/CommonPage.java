@@ -1,8 +1,5 @@
 package com.hypnotes.pages;
 
-import com.hypnotes.utilities.BrowserUtilities;
-import com.hypnotes.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.driver;
@@ -16,6 +13,33 @@ public abstract class CommonPage {
     HomePage homePage;
     LoginPage loginPage;
     RegisterPage registerPage;
+    ResetPassword resetPassword;
+
+    MailSacPage mailSacPage;
+    NewPassword newPassword;
+
+    public NewPassword getNewPassword() {
+        if (newPassword == null) {
+            newPassword = new NewPassword();
+        }
+        return newPassword;
+    }
+
+    public MailSacPage getMailSacPage() {
+        if (mailSacPage == null) {
+            mailSacPage = new MailSacPage();
+        }
+        return mailSacPage;
+    }
+
+    public ResetPassword getResetPassword() {
+        if (resetPassword == null) {
+            resetPassword = new ResetPassword();
+        }
+
+
+        return resetPassword;
+    }
 
     public HomePage getHomePage() {
         if (homePage == null) {
