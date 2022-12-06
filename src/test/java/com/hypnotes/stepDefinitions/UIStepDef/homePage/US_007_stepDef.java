@@ -1,13 +1,10 @@
 package com.hypnotes.stepDefinitions.UIStepDef.homePage;
 
 import com.hypnotes.pages.CommonPage;
-import com.hypnotes.pages.US_007_page;
 import com.hypnotes.utilities.BrowserUtilities;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
-import javax.sql.rowset.BaseRowSet;
 
 import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.*;
 

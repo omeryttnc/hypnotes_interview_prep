@@ -9,7 +9,8 @@
 Feature: homePage
 
   @007
-    @day1
+  @day1
+  @firefox
   Scenario: As a user, I should be able to see various titles and make various controls on the homepage.
     Given go to website "https://test.hypnotes.net/"
     When click on the youtube video

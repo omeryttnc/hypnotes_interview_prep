@@ -1,8 +1,10 @@
 package com.hypnotes.stepDefinitions.UIStepDef;
 
 import com.github.javafaker.Faker;
+import com.hypnotes.enums.TherapistInfo;
 import com.hypnotes.pages.CommonPage;
 import com.hypnotes.utilities.BrowserUtilities;
+import com.hypnotes.utilities.ConfigurationReader;
 import com.hypnotes.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -25,13 +27,48 @@ public class Hooks {
     public static boolean isTestEnvironment;
     public static boolean isCookiesDeleted = true;
 
-    @Before
+    public static boolean isHeadless = false;
+    public static String browserType = "chrome";
+
+    public static boolean isFullScreen = true;
+    public static int width;
+    public static int height;
+
+    @Before(value = "@headless", order = 0)
+    public void setIsHeadless() {
+        isHeadless = true;
+    }
+
+    @Before(value = "@firefox", order = 0)
+    public void setIsChrome() {
+        browserType = "firefox";
+    }
+
+
+    @Before(value = "@iPhone12", order = 0)
+    public void setiPhone12() {
+        isFullScreen = false;
+        width = 390;
+        height = 844;
+    }
+
+    @Before(order = 1)
     public void setup() {
 
         driver = Driver.getDriver();
         commonPage = new CommonPage() {
         };
         actions = new Actions(driver);
+    }
+
+    @Before(order = 2,value = "@standard")
+    public void loginAsStandard() {
+        driver.get("https://test.hypnotes.net/login");
+        commonPage.getLoginPage().login2(TherapistInfo.STANDARD);
+    }    @Before(order = 2,value = "@enterprise")
+    public void loginAsEnterprise() {
+        driver.get("https://test.hypnotes.net/login");
+        commonPage.getLoginPage().login2(TherapistInfo.ENTERPRISE);
     }
 
     @After

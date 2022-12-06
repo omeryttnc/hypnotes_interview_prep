@@ -3,6 +3,7 @@ package com.hypnotes.stepDefinitions.UIStepDef.therapistLogin;
 import com.hypnotes.utilities.BrowserUtilities;
 import com.hypnotes.utilities.ConfigurationReader;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -164,4 +165,5 @@ public class US_026_stepDef {
         commonPage.getMailSacPage().clickHere.click();
         BrowserUtilities.wait(3);
     }
+
 }
