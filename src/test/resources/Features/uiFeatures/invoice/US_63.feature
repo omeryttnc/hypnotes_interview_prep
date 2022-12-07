@@ -61,10 +61,10 @@ Feature: invoice
     Then assert Item name description should be enterable or selectable
     Then assert QTY(Quantity) field should be functional and number must be writable
     Then assert The Rate field should be functional and the number must be writable
-#    Then assert Amount field should be functional and give correct result
-#    Then assert Subb Total should be functional and give accurate result
-#    Then assert Salec Tax must be functional and give accurate results
-#    Then assert Total should  be functional and give accurate results
+    Then assert Amount field should be functional and give correct result
+    Then assert Subb Total should be functional and give accurate result
+    Then assert Salec Tax must be functional and give accurate results
+    Then assert Total should  be functional and give accurate results
     Then assert Notes area should be  functional and writable
     Then assert The Terms & Conditions field should be functional and writable
 

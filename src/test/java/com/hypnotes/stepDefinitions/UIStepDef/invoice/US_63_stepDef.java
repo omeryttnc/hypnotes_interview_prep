@@ -185,23 +185,25 @@ public class US_63_stepDef {
     @Then("assert QTY\\(Quantity) field should be functional and number must be writable")
     public void assertQTYQuantityFieldShouldBeFunctionalAndNumberMustBeWritable() {
         clearAndSend(commonPage.getClientsPage().itemDescription_cards_1_qty_2_rate.get(1), "" + qty);
-        //String.valueOf(qty);
     }
 
     @Then("assert The Rate field should be functional and the number must be writable")
     public void assertTheRateFieldShouldBeFunctionalAndTheNumberMustBeWritable() {
         clearAndSend(commonPage.getClientsPage().itemDescription_cards_1_qty_2_rate.get(2), "" + rate);
-        //String.valueOf(qty);
     }
 
     @Then("assert Amount field should be functional and give correct result")
     public void assertAmountFieldShouldBeFunctionalAndGiveCorrectResult() {
-        Assert.assertEquals(qty * rate, Integer.parseInt(commonPage.getClientsPage().amount.getText()));
+        Assert.assertEquals(qty * rate, Double.parseDouble(commonPage.getClientsPage().amount.getText()),0);
+//        Assert.assertEquals(qty * rate, Integer.parseInt(commonPage.getClientsPage().amount.getText()));
+        System.out.println("commonPage.getClientsPage().amount.getText() = " + commonPage.getClientsPage().amount.getText());
     }
 
     @Then("assert Subb Total should be functional and give accurate result")
     public void assertSubbTotalShouldBeFunctionalAndGiveAccurateResult() {
-        Assert.assertEquals(qty * rate, Integer.parseInt(commonPage.getClientsPage().subTotal.getText()));
+        Assert.assertEquals(qty * rate, Double.parseDouble(commonPage.getClientsPage().subTotal.getText()),0);
+//        Assert.assertEquals(qty * rate, Integer.parseInt(commonPage.getClientsPage().subTotal.getText()));
+        System.out.println("commonPage.getClientsPage().subTotal.getText() = " + commonPage.getClientsPage().subTotal.getText());
 
     }
 
@@ -212,7 +214,9 @@ public class US_63_stepDef {
 
     @Then("assert Total should  be functional and give accurate results")
     public void assertTotalShouldBeFunctionalAndGiveAccurateResults() {
-        Assert.assertEquals((qty * rate * 0.20), Double.parseDouble(commonPage.getClientsPage().saleTotal.getText().split(".")[0]), 0.0);
+        System.out.println("commonPage.getClientsPage().saleTotal.getText() = " + commonPage.getClientsPage().saleTotal.getText());
+//        Assert.assertEquals((qty * rate * 0.20), Double.parseDouble(commonPage.getClientsPage().saleTotal.getText().split(".")[0]), 0.0);
+        Assert.assertEquals((qty * rate * 0.20), Double.parseDouble(commonPage.getClientsPage().saleTotal.getText()), 0.0);
     }
 
     @Then("assert Notes area should be  functional and writable")
