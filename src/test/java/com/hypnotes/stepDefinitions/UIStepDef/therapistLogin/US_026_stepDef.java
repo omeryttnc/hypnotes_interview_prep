@@ -56,8 +56,8 @@ public class US_026_stepDef {
 
     @Then("assert toast message as follow {string}")
     public void assertToastMessageAsFollow(String toastMessage) {
-        BrowserUtilities.waitForVisibility(commonPage.getLoginPage().toastMessage, 10);
-        Assert.assertEquals(toastMessage, commonPage.getLoginPage().toastMessage.getText());
+        BrowserUtilities.waitForVisibility(commonPage.getLoginPage().toastMessage.get(0), 10);
+        Assert.assertEquals(toastMessage, commonPage.getLoginPage().toastMessage.get(0).getText());
 
     }
 
@@ -123,8 +123,8 @@ public class US_026_stepDef {
 
     @Then("assert {string} is displayed")
     public void assertIsDisplayed(String toast) {
-        BrowserUtilities.waitForVisibility(commonPage.getLoginPage().toastMessage, 10);
-        Assert.assertEquals(toast, commonPage.getLoginPage().toastMessage.getText());
+        BrowserUtilities.waitForVisibility(commonPage.getLoginPage().toastMessage.get(0), 10);
+        Assert.assertEquals(toast, commonPage.getLoginPage().toastMessage.get(0).getText());
     }
 
     @When("user click on the go to login page to login")

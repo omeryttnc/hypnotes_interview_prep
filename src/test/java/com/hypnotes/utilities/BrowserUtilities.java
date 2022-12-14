@@ -176,6 +176,50 @@ public class BrowserUtilities {
         BrowserUtilities.waitForVisibility(element, 10);
     }
 
+    public static void waitAndClick(WebElement webElement) {
+        BrowserUtilities.waitForClickability(webElement, 10);
+        BrowserUtilities.clickWithJS(webElement);
+    }
+
+    public static void clearAndSendAndAssert(WebElement webElement, String str) {
+        BrowserUtilities.waitForVisibility(webElement, 10);
+        String value = webElement.getAttribute("value");
+        for (int i = 0; i < value.length(); i++) {
+            webElement.sendKeys(Keys.BACK_SPACE);
+        }
+        BrowserUtilities.wait(3);
+        webElement.sendKeys(str);
+
+        Assert.assertEquals(str, webElement.getAttribute("value"));
+
+
+    }
+
+    public static void clearAndSend(WebElement webElement, String str) {
+        BrowserUtilities.waitForVisibility(webElement, 10);
+        String value = webElement.getAttribute("value");
+        for (int i = 0; i < value.length(); i++) {
+            webElement.sendKeys(Keys.BACK_SPACE);
+
+        }
+
+        BrowserUtilities.wait(3);
+        webElement.sendKeys(str);
+
+
+    }
+
+    public static boolean isExist(WebElement webElement) {
+        boolean flag;
+
+        try {
+            flag = webElement.isDisplayed() || !webElement.isDisplayed();
+        } catch (NotFoundException e) {
+            flag = false;
+        }
+        return flag;
+
+    }
 
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();

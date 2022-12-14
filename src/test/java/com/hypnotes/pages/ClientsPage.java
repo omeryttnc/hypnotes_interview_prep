@@ -17,6 +17,8 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "//span[text()='View Detail']")
     public List<WebElement> viewDeatils;
 
+    @FindBy(xpath = "//button[text()='Get Payment']")
+    public WebElement getPayment;
     //invoice
     @FindBy(xpath = "(//a[contains(@class,clientHeader_clientHeaderTab__yujJd)]/p)[4]")
     public WebElement invoice;

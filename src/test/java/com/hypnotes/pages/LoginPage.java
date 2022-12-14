@@ -5,6 +5,10 @@ import com.hypnotes.utilities.BrowserUtilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
+import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.driver;
+
 public class LoginPage extends CommonPage {
     @FindBy(xpath = "//a[text()='Login']")
     public WebElement loginButton_navbar;
@@ -25,7 +29,7 @@ public class LoginPage extends CommonPage {
 
 
     @FindBy(xpath = "//div[@class='ant-message-notice-content']//span[2]")
-    public WebElement toastMessage;
+    public List<WebElement> toastMessage;
 
     public void login1(String username, String password) {
         loginButton_navbar.click();
@@ -37,7 +41,7 @@ public class LoginPage extends CommonPage {
     }
 
     public void login2(TherapistInfo therapistInfo) {
-       // loginButton_navbar.click();
+        driver.get("https://test.hypnotes.net/login");
         BrowserUtilities.waitForClickability(emailBox, 30);
         emailBox.sendKeys(therapistInfo.getEmail());
         passwordBox.sendKeys(therapistInfo.getPassword());

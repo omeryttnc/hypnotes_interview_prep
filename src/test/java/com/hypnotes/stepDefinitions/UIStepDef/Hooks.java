@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import com.hypnotes.enums.TherapistInfo;
 import com.hypnotes.pages.CommonPage;
 import com.hypnotes.utilities.BrowserUtilities;
-import com.hypnotes.utilities.ConfigurationReader;
 import com.hypnotes.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -61,13 +60,22 @@ public class Hooks {
         actions = new Actions(driver);
     }
 
-    @Before(order = 2,value = "@standard")
+    @Before(order = 2, value = "@basic")
+    public void loginAsBasic() {
+        commonPage.getLoginPage().login2(TherapistInfo.BASIC);
+    }
+
+    @Before(order = 2, value = "@standard")
     public void loginAsStandard() {
-        driver.get("https://test.hypnotes.net/login");
         commonPage.getLoginPage().login2(TherapistInfo.STANDARD);
-    }    @Before(order = 2,value = "@enterprise")
+    }
+    @Before(order = 2, value = "@premium")
+    public void loginAsPremium() {
+        commonPage.getLoginPage().login2(TherapistInfo.PREMIUM);
+    }
+
+    @Before(order = 2, value = "@enterprise")
     public void loginAsEnterprise() {
-        driver.get("https://test.hypnotes.net/login");
         commonPage.getLoginPage().login2(TherapistInfo.ENTERPRISE);
     }
 

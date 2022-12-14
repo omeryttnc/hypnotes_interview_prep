@@ -19,7 +19,30 @@ public abstract class CommonPage {
     DashboardPage dashboardPage;
     ProfilePage profilePage;
     ClientsPage clientsPage;
+    PaymentPage paymentPage;
+    ScheduleSettingsPage scheduleSettingsPage;
+    SettingsPage settingsPage;
 
+    public SettingsPage getSettings() {
+        if (settingsPage == null) {
+            settingsPage = new SettingsPage();
+        }
+        return settingsPage;
+    }
+
+    public ScheduleSettingsPage getScheduleSettingsPage() {
+        if (scheduleSettingsPage == null) {
+            scheduleSettingsPage = new ScheduleSettingsPage();
+        }
+        return scheduleSettingsPage;
+    }
+
+    public PaymentPage getPaymentPage() {
+        if (paymentPage == null) {
+            paymentPage = new PaymentPage();
+        }
+        return paymentPage;
+    }
     public ClientsPage getClientsPage() {
         if (clientsPage == null) {
             clientsPage = new ClientsPage();
