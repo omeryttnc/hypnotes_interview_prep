@@ -22,7 +22,16 @@ public abstract class CommonPage {
     PaymentPage paymentPage;
     ScheduleSettingsPage scheduleSettingsPage;
     SettingsPage settingsPage;
+    CalendarPage calendarPage;
 
+
+
+    public CalendarPage getCalendar() {
+        if (calendarPage == null) {
+            calendarPage = new CalendarPage();
+        }
+        return calendarPage;
+    }
     public SettingsPage getSettings() {
         if (settingsPage == null) {
             settingsPage = new SettingsPage();

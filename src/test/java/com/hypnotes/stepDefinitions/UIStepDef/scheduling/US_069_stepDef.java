@@ -246,4 +246,6 @@ public class US_069_stepDef {
         }
         // Assert.assertEquals(message, commonPage.getLoginPage().toastMessage.get(0).getText());
     }
+
+
 }

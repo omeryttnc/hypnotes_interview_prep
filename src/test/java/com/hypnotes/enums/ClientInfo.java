@@ -3,7 +3,7 @@ package com.hypnotes.enums;
 import java.util.List;
 
 public enum ClientInfo {
-    client(List.of(1760),"orhan","gulmez","test_orhan_gulmez@mailsac.com","A123456asdfa.,") //Arrays.asList(1760) 0-> enterprise
+    client(List.of(0,0,1930,1760),"orhan","gulmez","test_orhan_gulmez@mailsac.com","A123456asdfa.,") //Arrays.asList(1760) 0-> enterprise
     ;
     private List<Integer> clientId;
     private String firstName, lastName, email, password;
