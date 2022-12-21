@@ -24,6 +24,7 @@ public class Hooks {
 
     public static Actions actions;
     public static boolean isTestEnvironment;
+    public static String userSessionID;
     public static boolean isCookiesDeleted = true;
 
     public static boolean isHeadless = false;
@@ -62,21 +63,21 @@ public class Hooks {
 
     @Before(order = 2, value = "@basic")
     public void loginAsBasic() {
-        commonPage.getLoginPage().login2(TherapistInfo.BASIC);
+        commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.BASIC);
     }
 
     @Before(order = 2, value = "@standard")
     public void loginAsStandard() {
-        commonPage.getLoginPage().login2(TherapistInfo.STANDARD);
+        commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.STANDARD);
     }
     @Before(order = 2, value = "@premium")
     public void loginAsPremium() {
-        commonPage.getLoginPage().login2(TherapistInfo.PREMIUM);
+        commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.PREMIUM);
     }
 
     @Before(order = 2, value = "@enterprise")
     public void loginAsEnterprise() {
-        commonPage.getLoginPage().login2(TherapistInfo.ENTERPRISE);
+        commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.ENTERPRISE);
     }
 
     @After

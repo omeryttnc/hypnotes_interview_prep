@@ -15,4 +15,9 @@ public class DashboardPage extends CommonPage {
 
     @FindBy(xpath = "//a[text()='Setting']")
     public WebElement scheduling_setting;
+
+    @FindBy(xpath = "//a[text()='Calendar']")
+    public WebElement scheduling_calendar;
+
+
 }
