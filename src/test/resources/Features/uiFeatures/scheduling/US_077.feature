@@ -31,8 +31,11 @@
 #Should be visible  on Reschedule Meeting Calendar"
 
 Feature:
+
+  @enterprise
   Scenario Outline:
-    Given collect information time and date
+    Given delete all meetings
+    And set meeting for client
     And click on the first meeting
     Then assert if date and time is matching
     And assert if client info is matching
@@ -41,7 +44,7 @@ Feature:
     And select suitable time
     And click yes to confirm
     When click next to continue
-    Then assert reschedule without asking for users permisson button is working
+    Then assert reschedule without asking for users permission button is working
     When click on the submit
     And User should be able to pay different ways: paypal, credit card, stripe, square <id> "<name>"
     Examples:
