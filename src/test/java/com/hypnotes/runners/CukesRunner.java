@@ -13,8 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/reports/rerun.txt"
         },
         features = "src/test/resources/Features",
-        glue = "com.hypnotes.stepDefinitions",
-        tags = "@day2"
+        glue = "com.hypnotes.stepDefinitions"
 )
 public class CukesRunner {
 }

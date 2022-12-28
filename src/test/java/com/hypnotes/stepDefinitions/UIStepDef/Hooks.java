@@ -75,6 +75,11 @@ public class Hooks {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.PREMIUM);
     }
 
+    @Before(order = 2, value = "@THERAPIST_BASIC")
+    public void loginAsTHERAPIST_BASIC() {
+        commonPage.getLoginPage().loginProductEnvironment(TherapistInfo.THERAPIST_BASIC);
+    }
+
     @Before(order = 2, value = "@enterprise")
     public void loginAsEnterprise() {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.ENTERPRISE);

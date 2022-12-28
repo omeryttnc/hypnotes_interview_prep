@@ -5,6 +5,8 @@ public enum TherapistInfo {
     PREMIUM(0,"premium","interview_therapist_premium@mailsac.com","12ASDasd.,asdASD34"),
     STANDARD(0,"standard","interview_therapist_standard@mailsac.com","12ASDasd.,asdASD34"),
     BASIC(0,"basic","interview_therapist_basic@mailsac.com","12ASDasd.,asdASD34"),
+    //product
+    THERAPIST_BASIC(534,"basic",  "test_therapist_basic@mailsac.com", "asdASDw24324."),
 
     ;
     private int therapistId;

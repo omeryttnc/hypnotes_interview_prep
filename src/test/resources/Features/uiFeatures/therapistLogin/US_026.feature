@@ -17,6 +17,7 @@
 Feature: Therapist(Log in)
 
   @day2
+  @disable
   Scenario: As a user Forgot your password? and I should be able to check the new password creation process_test_1
     Given go to website "https://test.hypnotes.net/"
     And click on the Login button
@@ -46,6 +47,7 @@ Feature: Therapist(Log in)
 
 
   @day2
+  @disable
   Scenario: As a user Forgot your password? and I should be able to check the new password creation process_test_2
     Given go to website "https://test.hypnotes.net/"
     And click on the Login button

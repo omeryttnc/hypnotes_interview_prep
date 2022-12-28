@@ -25,9 +25,9 @@ Feature: Client Info
     Examples:
       | id | name        |
       | 0  | paypal      |
-      | 1  | credit card |
-      | 2  | stripe      |
-      | 3  | square      |
+#      | 1  | credit card |
+#      | 2  | stripe      |
+#      | 3  | square      |
 #    And Go to Payment button must be clickable
 #    When the user click  Go to Payment button the payment screen should appear
 
