@@ -74,4 +74,18 @@ public class CalendarPage extends CommonPage {
     public WebElement checkedBox;
 
 
+    @FindBy(xpath = "(//div[@class='site-description-item-profile-wrapper'])[8]")
+    public WebElement personalInfo_fullName;
+
+    @FindBy(xpath = "(//div[@class='site-description-item-profile-wrapper'])[9]")
+    public WebElement personalInfo_email;
+
+    @FindBy(xpath = "(//div[@class='site-description-item-profile-wrapper'])[2]")
+    public WebElement meetingInfo_time;
+
+    @FindBy(xpath = "(//div[@class='site-description-item-profile-wrapper'])[4]")
+    public WebElement meetingInfo_date;
+
+    @FindBy(xpath = "//span[text()='Submit']")
+    public WebElement submit;
 }

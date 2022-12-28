@@ -34,7 +34,8 @@ public class PaymentPage extends CommonPage {
     @FindBy(xpath = "(//input[@type='checkbox'])[4]")
     public WebElement squad_tick;
 
-    @FindBy(xpath = "(//input[@type='checkbox'])")
+    @FindBy(xpath = "//button[@type='submit' and @class='ant-btn ant-btn-primary']")
+//    @FindBy(xpath = "(//input[@type='checkbox'])")
     public List<WebElement> ticks_list;
 
 
@@ -134,6 +135,9 @@ public class PaymentPage extends CommonPage {
 
     @FindBy(css = ".sq-card-iframe-container iframe")
     public WebElement squareIframe;
+
+    @FindBy(css = ".ant-result-subtitle")
+    public WebElement successfullyCreatedAMeetingWith_title;
 
     public void payWithPaypal() {
 

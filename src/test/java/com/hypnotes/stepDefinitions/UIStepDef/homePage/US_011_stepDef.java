@@ -39,4 +39,5 @@ public class US_011_stepDef extends CommonPage {
         Assert.assertEquals(url, driver.getCurrentUrl());
 
     }
+
 }
