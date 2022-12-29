@@ -25,9 +25,9 @@ public class US_103_stepDef {
     Map<String, String> colorUI = new HashMap<>();
 
     enum colorIndex {
-        GroupSession(getColourOfService(7), 7),
+        GroupSession(getColourOfService(2), 2),
         Packages(getColourOfService(1), 1),
-        //        Individual(getColourOfService(0), 0),
+        Individual(getColourOfService(0), 0),
         ShowedUp(getColourOfService(3), 3),
         Canceled(getColourOfService(5), 5),
         Reschedule(getColourOfService(4), 4),
@@ -53,29 +53,34 @@ public class US_103_stepDef {
     public void getAllColorFromBackend() {
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(5);
-        colorBackend = getColor(userSessionID, isTestEnvironment);
+
+        colorBackend = ApiUtilities.Colors.getColor();
     }
+
 
     @And("get all color from UI")
     public void getAllColorFromUI() {
+        for (int i = 0; i < colorIndex.values().length; i++) {
 
-
+            colorUI.put(colorIndex.values()[i].name(), getColourOfService(colorIndex.values()[i].index));
+        }
+        System.out.println("colorBackend = " + colorBackend);
+        System.out.println("colorUI = " + colorUI);
     }
 
     @Then("assert if UI color and backend color are matching")
     public void assertIfUIColorAndBackendColorAreMatching(DataTable dataTable) {
 
-        for (int i = 0; i < colorIndex.values().length; i++) {
-
-            colorUI.put(colorIndex.values()[i].name(), getColourOfService(colorIndex.values()[i].index));
-        }
         List<String> index = dataTable.column(0);
         List<String> colorType = dataTable.column(1);
 
 
         for (int i = 0; i < colorType.size(); i++) {
             System.out.println(colorBackend.get(colorType.get(i)));
+            System.out.println(hexToRgba(colorBackend.get(colorType.get(i))));
             System.out.println(colorUI.get(colorType.get(i)));
+
+            Assert.assertEquals(hexToRgba(colorBackend.get(colorType.get(i))), colorUI.get(colorType.get(i)));
 
             System.out.println("******");
         }
@@ -86,9 +91,7 @@ public class US_103_stepDef {
         for (int i = 0; i < colorIndex.values().length; i++) {
             String hex = faker.color().hex();
 
-            setColor(userSessionID, isTestEnvironment, colorIndex.values()[i].name(), hex);
-            ApiUtilities.Colors.setColor(userSessionID, isTestEnvironment, colorIndex.values()[i].name(), hex);
-//            setColor(userSessionID, isTestEnvironment, colorIndex.values()[i].name(), hex);
+            ApiUtilities.Colors.setColor(colorIndex.values()[i].name(), hex);
             driver.navigate().refresh();
             BrowserUtilities.waitForPageToLoad(10);
             BrowserUtilities.wait(3);
@@ -97,7 +100,7 @@ public class US_103_stepDef {
             System.out.println(hex);
             System.out.println(hexToRgba(hex));
 
-
+            Assert.assertEquals(getColourOfService(colorIndex.values()[i].getIndex()), hexToRgba(hex));
         }
     }
 
@@ -110,19 +113,21 @@ public class US_103_stepDef {
                 ).body(colorType + "=" + hex)
                 .post("https://" + (isTestEnvironment ? "test." : "") + "hypnotes.net/api/schedule/inCalender/setCategoryColor");
         Assert.assertEquals(200, response.statusCode());
-
+        response.prettyPrint();
     }
 
-    public Map<String, String> getColor(String userSessionId, boolean isTestEnvironment) {
-        Map<String, String> map = new HashMap<>();
 
+    public Map<String, String> getColor() {
+        Map<String, String> map = new HashMap<>();
         response = given().
                 headers(
                         "content-type", "application/x-www-form-urlencoded",
-                        "cookie", "PHPSESSID=" + userSessionId
+                        "cookie", "PHPSESSID=" + userSessionID
                 )
                 .post("https://" + (isTestEnvironment ? "test." : "") + "hypnotes.net/api/schedule/inCalender/getCategoryColor");
-
+        System.out.println("sssss");
+        response.prettyPrint();
+        System.out.println("sssss");
         List<String> title = response.jsonPath().getList("title");
         List<String> color = response.jsonPath().getList("color");
 
@@ -138,8 +143,8 @@ public class US_103_stepDef {
     }
 
 
-    public static String getColourOfService(int i_0$p_1$g_2$s_3$r_4$c_5$n_6$g_7) {
-        return commonPage.getCalendar().colorToChange.get(i_0$p_1$g_2$s_3$r_4$c_5$n_6$g_7).getCssValue("background-color");
+    public static String getColourOfService(int i_0$p_1$g_2$s_3$r_4$c_5$n_6$go_7) {
+        return commonPage.getCalendar().colorToChange.get(i_0$p_1$g_2$s_3$r_4$c_5$n_6$go_7).getCssValue("background-color");
     }
 
     public String hexToRgba(String hex) {
@@ -147,5 +152,6 @@ public class US_103_stepDef {
         return "rgba(" + color.getRed() + ", " + color.getGreen() + ", " + color.getBlue() + ", " + color.getTransparency() + ")";
 
     }
+
 
 }

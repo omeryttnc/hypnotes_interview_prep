@@ -14,11 +14,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.time.Duration;
-import java.util.Properties;
 
 import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.*;
 
@@ -41,23 +37,13 @@ public class Driver {
     Creating re-usable utility method that will return same 'driver' instance everytime we call it.
      */
     public static WebDriver getDriver() {
+        // isFullScreen = true;
+        // isHeadless = true;
+        // browserType = "chrome";
+        //  browserType = "firefox";
 
-//        isHeadless = true;
-//        browserType = "chrome";
-//        browserType = "firefox";
-        Properties properties1 = new Properties();
-        File file = new File("src/test/resources/application.properties");
-
-        try {
-            properties1.load(new FileReader(file));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-//
-//        boolean fullscreen = Boolean.parseBoolean(properties1.getProperty("fullscreen"));
-//        int width = Integer.parseInt(properties1.getProperty("width"));
-//        int height = Integer.parseInt(properties1.getProperty("height"));
-
+//***********Burayi false yaparak browser i gorebiliriz*******************************************
+        isHeadless = false;
 
         //setting various capabilities for browsers
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -66,6 +52,8 @@ public class Driver {
             chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--headless");
             chromeOptions.addArguments("--window-size=1920,1080");
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
         } else {
             chromeOptions.addArguments("use-fake-ui-for-media-stream");
             chromeOptions.addArguments("--disable-gpu");
@@ -141,7 +129,7 @@ public class Driver {
 
                     driverPool.get().manage().window().maximize();
                 } else {
-                    Dimension dimension = new Dimension(width,height);
+                    Dimension dimension = new Dimension(width, height);
                     driverPool.get().manage().window().setSize(dimension);
                 }
                 driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
