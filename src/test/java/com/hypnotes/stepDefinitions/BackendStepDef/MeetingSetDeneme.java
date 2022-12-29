@@ -85,7 +85,7 @@ public class MeetingSetDeneme {
 
     @Test
     public void sfds() {
-        ApiUtilities.Meetings.MeetingInfo meetingInfo =new ApiUtilities.Meetings.MeetingInfo(userSessionId,isTestEnvironment);
+        ApiUtilities.Meetings.MeetingInfo meetingInfo =new ApiUtilities.Meetings.MeetingInfo();
         System.out.println(meetingInfo.getClientEmail());
         System.out.println(meetingInfo.getMeetingId());
         System.out.println(meetingInfo.getClientName());

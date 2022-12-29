@@ -1,6 +1,6 @@
 Feature: APi
 
-  @THERAPIST_BASIC
+  @premium
   Scenario: US_103 As a user, I should be able change category colors.
     Given get all color from backend
     And get all color from UI
