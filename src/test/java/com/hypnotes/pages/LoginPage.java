@@ -46,8 +46,12 @@ public class LoginPage extends CommonPage {
         emailBox.sendKeys(therapistInfo.getEmail());
         passwordBox.sendKeys(therapistInfo.getPassword());
         loginButton_submit.click();
+        System.out.println("driver.manage().getCookieNamed(\"PHPSESSID\").toString() = " + driver.manage().getCookieNamed("PHPSESSID").toString());
+        BrowserUtilities.wait(2);
+        System.out.println("driver.manage().getCookieNamed(\"PHPSESSID\").toString() = " + driver.manage().getCookieNamed("PHPSESSID").toString());
         BrowserUtilities.waitForPageToLoad(10);
-        userSessionID = driver.manage().getCookieNamed("PHPSESSID").toString();
+        System.out.println("driver.manage().getCookieNamed(\"PHPSESSID\").toString() = " + driver.manage().getCookieNamed("PHPSESSID").toString());
+        userSessionID = driver.manage().getCookieNamed("PHPSESSID").toString().split("=")[1].split(";")[0];
         isTestEnvironment = true;
     }
 
@@ -57,8 +61,9 @@ public class LoginPage extends CommonPage {
         emailBox.sendKeys(therapistInfo.getEmail());
         passwordBox.sendKeys(therapistInfo.getPassword());
         loginButton_submit.click();
+        BrowserUtilities.wait(2);
         BrowserUtilities.waitForPageToLoad(10);
-        userSessionID = driver.manage().getCookieNamed("PHPSESSID").toString();
+        userSessionID = driver.manage().getCookieNamed("PHPSESSID").toString().split("=")[1].split(";")[0];
         isTestEnvironment = false;
     }
 
