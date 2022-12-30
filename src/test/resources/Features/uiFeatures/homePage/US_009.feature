@@ -2,6 +2,7 @@ Feature: HomePage
 
   @009
   @day1
+  @omer
   Scenario: As a user, I should be able to see the Testimonials section on the homepage.
     Given go to website "https://test.hypnotes.net/"
     When go to testimonials
