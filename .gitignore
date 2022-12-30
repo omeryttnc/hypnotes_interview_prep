@@ -5,4 +5,3 @@ cmake-build-*/
 *.iws
 out/
 /target/
-/src/test/java/com/hypnotes/utilities/Driver.java
