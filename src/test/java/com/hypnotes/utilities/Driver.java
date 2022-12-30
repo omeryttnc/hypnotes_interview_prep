@@ -40,7 +40,7 @@ public class Driver {
         // isFullScreen = true;
         // isHeadless = true;
         // browserType = "chrome";
-        //  browserType = "firefox";
+          browserType = "firefox";
 
 //***********Burayi false yaparak browser i gorebiliriz*******************************************
         isHeadless = false;

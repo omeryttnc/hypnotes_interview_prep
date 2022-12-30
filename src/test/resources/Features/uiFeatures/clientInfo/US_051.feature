@@ -11,6 +11,7 @@
 Feature: Client Info
 
   @standard
+    @firefox
   Scenario Outline: As a user, I should be able to see various payment options
     When user goes to client page
     And click on view detail of client button
