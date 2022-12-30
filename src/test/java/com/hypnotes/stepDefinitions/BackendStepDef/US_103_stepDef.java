@@ -24,6 +24,7 @@ public class US_103_stepDef {
     Map<String, String> colorBackend = new HashMap<>();
     Map<String, String> colorUI = new HashMap<>();
 
+
     enum colorIndex {
         GroupSession(getColourOfService(2), 2),
         Packages(getColourOfService(1), 1),
