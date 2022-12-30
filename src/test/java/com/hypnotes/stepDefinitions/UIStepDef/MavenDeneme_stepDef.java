@@ -30,6 +30,9 @@ public class MavenDeneme_stepDef {
     }
 
     /**
+     *
+     *  // smoke regression
+     *
      * mvn clean test "-Dcucumber.filter.tags=@smoke"
      * mvn clean test "-Dcucumber.filter.tags=@omer"
      * mvn clean test "-Dcucumber.filter.tags=@smoke and @calender"
@@ -37,6 +40,11 @@ public class MavenDeneme_stepDef {
      * mvn clean test "-Dcucumber.filter.tags=@smoke or @calender"
      *
      * mvn clean test "-Dcucumber.filter.tags=(@smoke and @testEnvironment) and not @disable"
+     *
+     *
+     * // parallel
+     *
+     * mvn clean verify "-Dcucumber.filter.tags=@smoke or @calender" -f parallelPom.xml
      *
      */
 }
