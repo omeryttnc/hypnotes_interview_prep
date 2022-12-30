@@ -1,30 +1,32 @@
 Feature: homePage
 
   @day1
+  @parallel
   Scenario: As a user, on the footer of the page I should be able to see the Explore, Features,Company Titles and related subtitles._1
     Given go to website "https://test.hypnotes.net/"
     And go to bottom page
     Then assert titles are displayed
-      | Blog                                                                   |
-      | Pricing                                                                |
-      | How It Works ?                                                         |
-      | Appointment Scheduling                                                 |
-      | Secure Video Conferencing                                              |
-      | ESign Documents Online                                                 |
-      | Billing & Invoicing                                                    |
-      | Biofeedback-Emotion Recognition                                        |
-      | Speech To Text - Voice Note                                            |
-      | Handwriting To Text - OCR                                              |
-      | Customize Service                                                      |
-      | Get Organized                                                          |
-      | Security-HIPAA Compliance                                              |
-      | Website Builder                                                        |
-      | About Us                                                               |
-      | Contact Us                                                             |
-      | Privacy Policy                                                         |
-      | Terms Of Service                                                       |
+      | Blog                                                                    |
+      | Pricing                                                                 |
+      | How It Works ?                                                          |
+      | Appointment Scheduling                                                  |
+      | Secure Video Conferencing                                               |
+      | ESign Documents Online                                                  |
+      | Billing & Invoicing                                                     |
+      | Biofeedback-Emotion Recognition                                         |
+      | Speech To Text - Voice Note                                             |
+      | Handwriting To Text - OCR                                               |
+      | Customize Service                                                       |
+      | Get Organized                                                           |
+      | Security-HIPAA Compliance                                               |
+      | Website Builder                                                         |
+      | Client/Patient Portal                                                   |
+      | About Us                                                                |
+      | Contact Us                                                              |
+      | Privacy Policy                                                          |
+      | Terms Of Service                                                        |
       | Hypnotes Inc., 1159 Kelez Dr San Jose, California, 95120, United States |
-      | +1 (831) 205-7059                                                      |
+      | +1 (669) 696-5906                                                       |
 
   @day1
   Scenario Outline: US_011_TC02 The user verifies that the Headings in the relevant section should be clickable and related pages should be opened
@@ -47,10 +49,11 @@ Feature: homePage
       | 11    | https://test.hypnotes.net/features/get-organized                      |
       | 12    | https://test.hypnotes.net/features/hipaa-security                     |
       | 13    | https://test.hypnotes.net/services/therapist-website-builder          |
-      | 14    | https://test.hypnotes.net/about-us                                    |
-      | 15    | https://test.hypnotes.net/contact-us                                  |
-      | 16    | https://test.hypnotes.net/privacy-policy                              |
-      | 17    | https://test.hypnotes.net/terms-of-service                            |
+      | 14    | https://test.hypnotes.net/client-patient-portal                       |
+      | 15    | https://test.hypnotes.net/about-us                                    |
+      | 16    | https://test.hypnotes.net/contact-us                                  |
+      | 17    | https://test.hypnotes.net/privacy-policy                              |
+      | 18    | https://test.hypnotes.net/terms-of-service                            |
 
 
 
