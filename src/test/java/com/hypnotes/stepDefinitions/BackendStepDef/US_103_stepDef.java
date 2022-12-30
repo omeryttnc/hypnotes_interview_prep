@@ -51,6 +51,9 @@ public class US_103_stepDef {
 
     @Given("get all color from backend")
     public void getAllColorFromBackend() {
+        userSessionID = driver.manage().getCookieNamed("PHPSESSID").toString().split("=")[1].split(";")[0];
+        System.out.println("userSessionID = " + userSessionID);
+        System.out.println("driver.manage().getCookieNamed(\"PHPSESSID\").toString().split(\"=\")[1].split(\";\")[0] = " + driver.manage().getCookieNamed("PHPSESSID").toString().split("=")[1].split(";")[0]);
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(5);
 

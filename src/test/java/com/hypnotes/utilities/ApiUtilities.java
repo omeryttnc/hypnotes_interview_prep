@@ -130,8 +130,9 @@ public class ApiUtilities {
                     .spec(responseSpecification)
                     .when()
                     .post("/schedule/inCalender/getCategoryColor");
-
-
+            System.out.println("userSessionID = " + userSessionID);
+            System.out.println("isTestEnvironment = " + isTestEnvironment);
+            response.prettyPrint();
             List<String> title = response.jsonPath().getList("title");
             List<String> color = response.jsonPath().getList("color");
 

@@ -43,7 +43,7 @@ public class Driver {
         //  browserType = "firefox";
 
 //***********Burayi false yaparak browser i gorebiliriz*******************************************
-        isHeadless = false;
+        isHeadless = true;
 
         //setting various capabilities for browsers
         ChromeOptions chromeOptions = new ChromeOptions();
