@@ -39,8 +39,8 @@ public class Driver {
     public static WebDriver getDriver() {
         // isFullScreen = true;
         // isHeadless = true;
-        // browserType = "chrome";
-          browserType = "firefox";
+         browserType = "chrome";
+        //  browserType = "firefox";
 
 //***********Burayi false yaparak browser i gorebiliriz*******************************************
         isHeadless = false;
