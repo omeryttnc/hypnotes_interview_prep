@@ -1,4 +1,4 @@
-package com.hypnotes.stepDefinitions.UIStepDef;
+package com.hypnotes.stepDefinitions.SeleniumGrid;
 
 import org.junit.After;
 import org.junit.Before;

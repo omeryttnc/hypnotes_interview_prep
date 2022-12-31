@@ -1,0 +1,10 @@
+first way create hub and node together
+java -jar selenium-server-4.7.2.jar standalone
+
+second way create hub and node seperately
+create hub
+	java -jar selenium-server-4.7.2.jar hub
+
+create multiple node with different port number (it can be one, depends on usage)
+	java -jar selenium-server-4.7.2.jar node --port 6666
+	java -jar selenium-server-4.7.2.jar node --port 5555
