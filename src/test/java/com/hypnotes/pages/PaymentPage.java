@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.Calendar;
 import java.util.List;
 
 import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.*;
@@ -34,8 +35,8 @@ public class PaymentPage extends CommonPage {
     @FindBy(xpath = "(//input[@type='checkbox'])[4]")
     public WebElement squad_tick;
 
-    @FindBy(xpath = "//button[@type='submit' and @class='ant-btn ant-btn-primary']")
-//    @FindBy(xpath = "(//input[@type='checkbox'])")
+//    @FindBy(xpath = "//button[@type='submit' and @class='ant-btn ant-btn-primary']")
+    @FindBy(xpath = "(//input[@type='checkbox'])")
     public List<WebElement> ticks_list;
 
 

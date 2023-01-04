@@ -26,17 +26,17 @@ public class US_103_stepDef {
 
 
     enum colorIndex {
-        GroupSession(getColourOfService(2), 2),
-        Packages(getColourOfService(1), 1),
-        Individual(getColourOfService(0), 0),
-        ShowedUp(getColourOfService(3), 3),
-        Canceled(getColourOfService(5), 5),
-        Reschedule(getColourOfService(4), 4),
-        Noshow(getColourOfService(6), 6);;
+        GroupSession(2),
+        Packages(1),
+        Individual(0),
+        ShowedUp(3),
+        Canceled(5),
+        Reschedule(4),
+        Noshow(6);;
         private String colorCode;
         private int index;
 
-        colorIndex(String colorCode, int index) {
+        colorIndex(int index) {
             this.colorCode = colorCode;
             this.index = index;
         }
@@ -64,8 +64,8 @@ public class US_103_stepDef {
 
     @And("get all color from UI")
     public void getAllColorFromUI() {
+      //  BrowserUtilities.waitAndClick(commonPage.getCalendar().colorSchemaSettings);
         for (int i = 0; i < colorIndex.values().length; i++) {
-
             colorUI.put(colorIndex.values()[i].name(), getColourOfService(colorIndex.values()[i].index));
         }
         System.out.println("colorBackend = " + colorBackend);
@@ -99,6 +99,10 @@ public class US_103_stepDef {
             driver.navigate().refresh();
             BrowserUtilities.waitForPageToLoad(10);
             BrowserUtilities.wait(3);
+
+//            BrowserUtilities.waitAndClick(commonPage.getCalendar().colorSchemaSettings);
+//            BrowserUtilities.wait(2);
+
 
             System.out.println(getColourOfService(colorIndex.values()[i].getIndex()));
             System.out.println(hex);
