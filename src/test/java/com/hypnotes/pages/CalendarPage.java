@@ -12,6 +12,8 @@ public class CalendarPage extends CommonPage {
     public List<WebElement> colorToChange;
     @FindBy(xpath = "//input[contains(@class,\"color_color\")]")
     public WebElement colorCode;
+    @FindBy(xpath = "//strong[text()='Color Schema Settings']")
+    public WebElement colorSchemaSettings;
 
     @FindBy(xpath = "(//a[contains(@class,'fc-daygrid-event')])")
     public List<WebElement> allAppointmentOnCalendar;
