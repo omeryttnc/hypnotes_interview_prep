@@ -87,7 +87,7 @@ public class Hooks {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.ENTERPRISE);
     }
 
-    @After
+    @After(value = "@UI")
     public void tearDown(Scenario scenario) {
 
         if (scenario.isFailed()) {
