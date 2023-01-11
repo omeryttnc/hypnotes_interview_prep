@@ -7,6 +7,7 @@ public class MavenDeneme_stepDef {
     @Given("sadece smoke")
     public void sadeceSmoke() {
         System.out.println("sadece smoke");
+
     }
 
     @Given("sadece regression")

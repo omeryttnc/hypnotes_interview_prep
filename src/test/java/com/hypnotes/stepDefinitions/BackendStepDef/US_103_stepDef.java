@@ -32,7 +32,7 @@ public class US_103_stepDef {
         ShowedUp(3),
         Canceled(5),
         Reschedule(4),
-        Noshow(6);;
+        Noshow(6);
         private String colorCode;
         private int index;
 

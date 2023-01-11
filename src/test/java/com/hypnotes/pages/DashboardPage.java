@@ -9,7 +9,8 @@ public class DashboardPage extends CommonPage {
     @FindBy(css = "[href$='clients']")
     public WebElement clients;
 
-
+    @FindBy(css = "[href$='add-client']")
+    public WebElement addClient;
     @FindBy(xpath = "//span[text()='Scheduling']")
     public WebElement scheduling;
 

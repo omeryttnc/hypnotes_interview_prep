@@ -97,6 +97,35 @@ public class ClientsPage extends CommonPage {
     @FindBy(xpath = "(//textarea[@class='ant-input invoice_input__75vJN  w-100'])[2]")
     public WebElement terms_conditions;
 
+    // add client
+
+    @FindBy(css = "#register_firstName")
+    public WebElement register_firstName;
+
+    @FindBy(css = "#register_lastName")
+    public WebElement register_lastName;
+
+    @FindBy(css = "#register_email")
+    public WebElement register_email;
+
+    @FindBy(css = "#register_occupation")
+    public WebElement register_occupation;
+
+    @FindBy(css = "[list='countryData']")
+    public WebElement register_country_genel;
+
+    @FindBy(css = "[class^='ant-select-item ant-select-item-option']")
+    public List<WebElement> register_country_list;
+
+    @FindBy(css = "[class='form-control ']")
+    public WebElement register_phone;
+
+    @FindBy(xpath = "//span[text()='Add Client']")
+    public WebElement addClientBottom;
+
+    @FindBy(xpath = "//span[text()='Yes']")
+    public WebElement yesToContinue;
+
     public void selectAndAssertDate(WebElement webElement, int dayToSkip) {
         webElement.click();
         WebElement webElementDate = driver.findElement(By.xpath("//td[@title='" + getDateForCalender(dayToSkip) + "']"));
@@ -113,7 +142,7 @@ public class ClientsPage extends CommonPage {
             webElement.sendKeys(Keys.BACK_SPACE);
         }
         BrowserUtilities.wait(3);
-        webElement.sendKeys(getDateForAssertion(dayToSkip)+Keys.ENTER);
+        webElement.sendKeys(getDateForAssertion(dayToSkip) + Keys.ENTER);
     }
 
     private String getDateForCalender(int dayToSkip) {

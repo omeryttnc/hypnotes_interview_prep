@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import com.hypnotes.enums.TherapistInfo;
 import com.hypnotes.pages.CommonPage;
 import com.hypnotes.utilities.BrowserUtilities;
+import com.hypnotes.utilities.DATABASE_UTILITIES;
 import com.hypnotes.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -52,7 +53,7 @@ public class Hooks {
         height = 844;
     }
 
-    @Before(order = 1)
+    @Before(order = 1, value = "@UI")
     public void setup() {
 
         driver = Driver.getDriver();
@@ -70,6 +71,7 @@ public class Hooks {
     public void loginAsStandard() {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.STANDARD);
     }
+
     @Before(order = 2, value = "@premium")
     public void loginAsPremium() {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.PREMIUM);
@@ -85,7 +87,7 @@ public class Hooks {
         commonPage.getLoginPage().loginTestEnvironment(TherapistInfo.ENTERPRISE);
     }
 
-    @After
+    @After(value = "@UI")
     public void tearDown(Scenario scenario) {
 
         if (scenario.isFailed()) {
@@ -104,12 +106,14 @@ public class Hooks {
 
     @Before("@db")
     public void setupDatabase() {
-        //   DataTableUtilities.createConnection();
+
+        DATABASE_UTILITIES.createConnection();
     }
 
     @After("@db")
     public void closeDatabase() {
-        // DataTableUtilities.closeConnection();
+        DATABASE_UTILITIES.closeConnection();
+
     }
 
 }
