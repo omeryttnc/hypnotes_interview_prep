@@ -1,5 +1,6 @@
 package com.hypnotes.utilities;
 
+import com.hypnotes.enums.TherapistInfo;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.response.Response;
@@ -22,7 +23,17 @@ public class ApiUtilities {
     static ResponseSpecification responseSpecification;
     static RequestSpecification requestSpecification;
 
+    public static String getSessionID(TherapistInfo therapistInfo) {
+        response = given()
+                .headers(
+                        "content-type", "application/x-www-form-urlencoded")
+                .body("{\"username\":\""+therapistInfo.getEmail()+"\",\"password\":\""+therapistInfo.getPassword()+"\"}")
+//                .body("\"username\":\"" + therapistInfo.getEmail() + "\",\"password\":\"" + therapistInfo.getPassword() + "\"")
+                .post("https://test.hypnotes.net/api/login");
+//        response.prettyPrint();
+        return (response.headers().getValue("set-cookie").split("=")[1].split(";")[0]);
 
+    }
     public static void setupSpecification() {
 
         ResponseSpecBuilder responseSpecBuilder = new ResponseSpecBuilder();

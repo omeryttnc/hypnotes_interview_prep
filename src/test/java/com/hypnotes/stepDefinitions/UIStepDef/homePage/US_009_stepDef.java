@@ -6,6 +6,7 @@ import com.hypnotes.pages.US_009_page;
 import com.hypnotes.utilities.BrowserUtilities;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -83,4 +84,8 @@ public class US_009_stepDef {
 
     }
 
+    @Test
+    public void name() {
+
+    }
 }

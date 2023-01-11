@@ -1,9 +1,12 @@
 package com.hypnotes.stepDefinitions.UIStepDef.scheduling;
 
+import com.hypnotes.utilities.BrowserUtilities;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static com.hypnotes.stepDefinitions.UIStepDef.Hooks.commonPage;
 
 public class US_077_stepDef {
 
@@ -41,6 +44,7 @@ public class US_077_stepDef {
 
     @And("click yes to confirm")
     public void clickYesToConfirm() {
+        BrowserUtilities.clickWithJS(commonPage.getClientsPage().yesToContinue);
     }
 
     @When("click next to continue")
